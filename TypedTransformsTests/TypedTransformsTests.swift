@@ -7,30 +7,33 @@
 //
 
 import XCTest
-@testable import TypedTransforms
+import TypedTransforms
+
+class Foo {}
+
+extension Foo: TypedTransformAdditions {}
+extension TypedTransforms where Base: Foo {
+  func compute() -> Int {
+    return 42
+  }
+}
 
 class TypedTransformsTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
+  func testMethodAddition() {
+    let answer = Foo().typed.compute()
+    XCTAssertEqual(answer, 42)
+  }
+}
+
+class CGPointTTest: XCTestCase {
+  func testCGPointInit() {
+    let p = CGPoint(21, 42)
+    let tp: CGPointT<ModelSpace> = p.typed()
+    XCTAssertEqual(tp.xy, p)
+
+    let tp2 = CGPointT<ModelSpace>(21, 42)
+    XCTAssertEqual(tp, tp2)
+
+  }
 }

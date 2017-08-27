@@ -10,6 +10,9 @@
 		5D3ED9521F533FAE001FDEFE /* TypedTransforms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3ED9481F533FAE001FDEFE /* TypedTransforms.framework */; };
 		5D3ED9571F533FAE001FDEFE /* TypedTransformsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3ED9561F533FAE001FDEFE /* TypedTransformsTests.swift */; };
 		5D3ED9591F533FAE001FDEFE /* TypedTransforms.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D3ED94B1F533FAE001FDEFE /* TypedTransforms.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D3ED9631F5341E2001FDEFE /* TypedTransforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3ED9621F5341E2001FDEFE /* TypedTransforms.swift */; };
+		5D3ED9651F534577001FDEFE /* Spaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3ED9641F534577001FDEFE /* Spaces.swift */; };
+		5D3ED9671F534608001FDEFE /* CGPointT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3ED9661F534608001FDEFE /* CGPointT.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		5D3ED9511F533FAE001FDEFE /* TypedTransformsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TypedTransformsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D3ED9561F533FAE001FDEFE /* TypedTransformsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypedTransformsTests.swift; sourceTree = "<group>"; };
 		5D3ED9581F533FAE001FDEFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D3ED9621F5341E2001FDEFE /* TypedTransforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypedTransforms.swift; sourceTree = "<group>"; };
+		5D3ED9641F534577001FDEFE /* Spaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spaces.swift; sourceTree = "<group>"; };
+		5D3ED9661F534608001FDEFE /* CGPointT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointT.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,9 @@
 			children = (
 				5D3ED94B1F533FAE001FDEFE /* TypedTransforms.h */,
 				5D3ED94C1F533FAE001FDEFE /* Info.plist */,
+				5D3ED9621F5341E2001FDEFE /* TypedTransforms.swift */,
+				5D3ED9641F534577001FDEFE /* Spaces.swift */,
+				5D3ED9661F534608001FDEFE /* CGPointT.swift */,
 			);
 			path = TypedTransforms;
 			sourceTree = "<group>";
@@ -148,6 +157,7 @@
 				TargetAttributes = {
 					5D3ED9471F533FAE001FDEFE = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					5D3ED9501F533FAE001FDEFE = {
@@ -196,6 +206,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D3ED9651F534577001FDEFE /* Spaces.swift in Sources */,
+				5D3ED9671F534608001FDEFE /* CGPointT.swift in Sources */,
+				5D3ED9631F5341E2001FDEFE /* TypedTransforms.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +347,7 @@
 		5D3ED95D1F533FAE001FDEFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -347,6 +361,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.rayfix.TypedTransforms;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,6 +370,7 @@
 		5D3ED95E1F533FAE001FDEFE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -376,6 +392,7 @@
 		5D3ED9601F533FAE001FDEFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y2JLK838WQ;
 				INFOPLIST_FILE = TypedTransformsTests/Info.plist;
@@ -390,6 +407,7 @@
 		5D3ED9611F533FAE001FDEFE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y2JLK838WQ;
 				INFOPLIST_FILE = TypedTransformsTests/Info.plist;
