@@ -13,6 +13,7 @@
 		5D3ED9631F5341E2001FDEFE /* TypedTransforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3ED9621F5341E2001FDEFE /* TypedTransforms.swift */; };
 		5D3ED9651F534577001FDEFE /* Spaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3ED9641F534577001FDEFE /* Spaces.swift */; };
 		5D3ED9671F534608001FDEFE /* CGPointT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3ED9661F534608001FDEFE /* CGPointT.swift */; };
+		5DB379961F5B14DC0037BEF4 /* CGAffineTransformT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB379951F5B14DC0037BEF4 /* CGAffineTransformT.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		5D3ED9621F5341E2001FDEFE /* TypedTransforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypedTransforms.swift; sourceTree = "<group>"; };
 		5D3ED9641F534577001FDEFE /* Spaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spaces.swift; sourceTree = "<group>"; };
 		5D3ED9661F534608001FDEFE /* CGPointT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointT.swift; sourceTree = "<group>"; };
+		5DB379951F5B14DC0037BEF4 /* CGAffineTransformT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAffineTransformT.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				5D3ED9621F5341E2001FDEFE /* TypedTransforms.swift */,
 				5D3ED9641F534577001FDEFE /* Spaces.swift */,
 				5D3ED9661F534608001FDEFE /* CGPointT.swift */,
+				5DB379951F5B14DC0037BEF4 /* CGAffineTransformT.swift */,
 			);
 			path = TypedTransforms;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			files = (
 				5D3ED9651F534577001FDEFE /* Spaces.swift in Sources */,
 				5D3ED9671F534608001FDEFE /* CGPointT.swift in Sources */,
+				5DB379961F5B14DC0037BEF4 /* CGAffineTransformT.swift in Sources */,
 				5D3ED9631F5341E2001FDEFE /* TypedTransforms.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
