@@ -13,9 +13,21 @@ public protocol PointProtocol2D: Equatable {
   init(_ x: Coordinate, _ y: Coordinate)
   var x: Coordinate { get set }
   var y: Coordinate { get set }
+  var lengthSquared: Coordinate { get }
+  var length: Coordinate { get }
+  var unit: Self { get }
 }
 
 public extension PointProtocol2D {
+  var lengthSquared: Coordinate {
+    return x*x + y*y
+  }
+  var length: Coordinate {
+    return lengthSquared.squareRoot()
+  }
+  var unit: Self {
+    return self * (1/length)
+  }
   static func +(lhs: Self, rhs: Self) -> Self {
     return Self(lhs.x + rhs.x, lhs.y + rhs.y)
   }
