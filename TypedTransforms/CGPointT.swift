@@ -17,6 +17,7 @@ public protocol PointProtocol2D: Equatable {
   var length: Scalar { get }
   var unit: Self { get }
   var orthogonal: Self { get }
+  func projected(on other: Self) -> Self
 }
 
 public extension PointProtocol2D {
@@ -31,6 +32,9 @@ public extension PointProtocol2D {
   }
   var orthogonal: Self {
     return Self(-y,x)
+  }
+  func projected(on other: Self) -> Self {
+    return ((self*other)/(other*other))*other
   }
   static func +(lhs: Self, rhs: Self) -> Self {
     return Self(lhs.x + rhs.x, lhs.y + rhs.y)

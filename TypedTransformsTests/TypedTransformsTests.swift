@@ -103,6 +103,14 @@ class CGPointTTest: XCTestCase {
     XCTAssertEqual(cameraPoint.x, 2)
     XCTAssertEqual(cameraPoint.y, 6)
   }
+
+  func testProjection() {
+    let point = CGPoint(2,3)
+    let line = CGPoint(1,2)
+    let projectedPoint = point.projected(on: line)
+    XCTAssertEqual(projectedPoint.x, 8.0/5.0)
+    XCTAssertEqual(projectedPoint.y, 16.0/5.0)
+  }
 }
 
 class CGAffineTransformTTest: XCTestCase {
