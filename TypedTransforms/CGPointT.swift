@@ -17,7 +17,7 @@ public protocol PointProtocol2D: Equatable {
 
 public extension PointProtocol2D {
   static func +(lhs: Self, rhs: Self) -> Self {
-    return Self(lhs.x + rhs.x, lhs.y + lhs.y)
+    return Self(lhs.x + rhs.x, lhs.y + rhs.y)
   }
   static prefix func -(p: Self) -> Self {
     return Self(-p.x, -p.y)
@@ -59,10 +59,10 @@ public struct CGPointT<Space: CoordinateSpace>: PointProtocol2D {
 
   public var y: CGFloat {
     get {
-      return xy.x
+      return xy.y
     }
     set {
-      xy.x = newValue
+      xy.y = newValue
     }
   }
 }
