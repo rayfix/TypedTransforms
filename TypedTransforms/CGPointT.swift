@@ -16,17 +16,21 @@ public protocol PointProtocol2D: Equatable {
   var lengthSquared: Scalar { get }
   var length: Scalar { get }
   var unit: Self { get }
+  var orthogonal: Self { get }
 }
 
 public extension PointProtocol2D {
   var lengthSquared: Scalar {
-    return x*x + y*y
+    return self*self
   }
   var length: Scalar {
     return lengthSquared.squareRoot()
   }
   var unit: Self {
     return self * (1/length)
+  }
+  var orthogonal: Self {
+    return Self(-y,x)
   }
   static func +(lhs: Self, rhs: Self) -> Self {
     return Self(lhs.x + rhs.x, lhs.y + rhs.y)
@@ -42,6 +46,9 @@ public extension PointProtocol2D {
   }
   static func *(point: Self, scalar: Scalar) -> Self {
     return scalar*point
+  }
+  static func *(lhs: Self, rhs: Self) -> Scalar {
+    return lhs.x*rhs.x+lhs.y*rhs.y
   }
   static func ==(lhs: Self, rhs: Self) -> Bool {
     return lhs.x == rhs.x && lhs.y == rhs.y

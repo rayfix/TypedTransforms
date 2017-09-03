@@ -90,6 +90,12 @@ class CGPointTTest: XCTestCase {
     XCTAssertEqual(point.length, 1)
   }
 
+  func testCGPointOrthogonal() {
+    let point = CGPointT<CameraSpace>(1,2)
+    let dot = point * point.orthogonal
+    XCTAssertEqual(dot, 0)
+  }
+
   func testTransformPoint() {
     let point: CGPointT<WorldSpace> = CGPoint(1,2).typed()
     let transform = CGAffineTransformT<WorldSpace,CameraSpace>(CGAffineTransform(scaleX: 2, y: 3))
