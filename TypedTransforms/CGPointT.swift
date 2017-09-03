@@ -9,20 +9,20 @@
 import Foundation
 
 public protocol PointProtocol2D: Equatable {
-  associatedtype Coordinate: FloatingPoint
-  init(_ x: Coordinate, _ y: Coordinate)
-  var x: Coordinate { get set }
-  var y: Coordinate { get set }
-  var lengthSquared: Coordinate { get }
-  var length: Coordinate { get }
+  associatedtype Scalar: FloatingPoint
+  init(_ x: Scalar, _ y: Scalar)
+  var x: Scalar { get set }
+  var y: Scalar { get set }
+  var lengthSquared: Scalar { get }
+  var length: Scalar { get }
   var unit: Self { get }
 }
 
 public extension PointProtocol2D {
-  var lengthSquared: Coordinate {
+  var lengthSquared: Scalar {
     return x*x + y*y
   }
-  var length: Coordinate {
+  var length: Scalar {
     return lengthSquared.squareRoot()
   }
   var unit: Self {
@@ -37,10 +37,10 @@ public extension PointProtocol2D {
   static func -(lhs: Self, rhs: Self) -> Self {
     return lhs+(-rhs)
   }
-  static func *(scalar: Coordinate, point: Self) -> Self {
+  static func *(scalar: Scalar, point: Self) -> Self {
     return Self(scalar*point.x, scalar*point.y)
   }
-  static func *(point: Self, scalar: Coordinate) -> Self {
+  static func *(point: Self, scalar: Scalar) -> Self {
     return scalar*point
   }
   static func ==(lhs: Self, rhs: Self) -> Bool {
@@ -50,7 +50,7 @@ public extension PointProtocol2D {
 
 public struct CGPointT<Space: CoordinateSpace>: PointProtocol2D {
 
-  public typealias Coordinate = CGFloat
+  public typealias Scalar = CGFloat
   public var xy: CGPoint
   public init(_ xy: CGPoint) {
     self.xy = xy
