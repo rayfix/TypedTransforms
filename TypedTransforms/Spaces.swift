@@ -14,3 +14,4 @@ public protocol CoordinateSpace {}
 public enum ModelSpace: CoordinateSpace {}
 public enum WorldSpace: CoordinateSpace {}
 public enum CameraSpace: CoordinateSpace {}
+public enum ClientSpace: CoordinateSpace {}
