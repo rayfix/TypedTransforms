@@ -113,6 +113,116 @@ class CGPointTTest: XCTestCase {
   }
 }
 
+class CGAngleTests: XCTestCase {
+
+  let eps: CGFloat = 1e-9
+
+  func testAngleInit() {
+    var angle = CGAngle(radians: 123)
+    XCTAssertEqual(angle.radians, 123)
+    angle.radians = 456
+    XCTAssertEqual(angle.radians, 456)
+  }
+
+  func testEquality() {
+    let angle1 = CGAngle(radians: 123)
+    let angle2 = CGAngle(radians: 456)
+    let angle3 = CGAngle(radians: 123)
+
+    XCTAssertEqual(angle1, angle1)
+    XCTAssertNotEqual(angle1, angle2)
+    XCTAssertEqual(angle1, angle3)
+  }
+
+  func testComparison() {
+    let angle1 = CGAngle(radians: 123)
+    let angle2 = CGAngle(radians: 124)
+    XCTAssertGreaterThan(angle2, angle1)
+  }
+
+  func testAdd() {
+    let angle = CGAngle(radians: 1) + CGAngle(radians: 2)
+    XCTAssertEqual(angle, CGAngle(radians: 3))
+  }
+
+  func testNegate() {
+    let angle = -CGAngle(radians: 1)
+    XCTAssertEqual(angle, CGAngle(radians: -1))
+  }
+
+  func testSubtract() {
+    let angle = CGAngle(radians: 3) - CGAngle(radians: 1)
+    XCTAssertEqual(angle, CGAngle(radians: 2))
+  }
+
+  func testAccumulate() {
+    var angle = CGAngle(radians: 1)
+    angle += CGAngle(radians: 2)
+    XCTAssertEqual(angle, CGAngle(radians: 3))
+  }
+
+  func testMinusAccumulate() {
+    var angle = CGAngle(radians: 1)
+    angle -= CGAngle(radians: 2)
+    XCTAssertEqual(angle, CGAngle(radians: -1))
+  }
+
+  func testPostMultiplyScalar() {
+    let angle = CGAngle(radians: 1)
+    XCTAssertEqual(angle*3, CGAngle(radians: 3))
+  }
+
+  func testPreMultiplyScalar() {
+    let angle = CGAngle(radians: 1)
+    XCTAssertEqual(3*angle, CGAngle(radians: 3))
+  }
+
+  func testMultiplyAccumulate() {
+    var angle = CGAngle(radians: 1)
+    angle *= 3
+    XCTAssertEqual(3*angle, CGAngle(radians: 9))
+  }
+
+  func testDivide() {
+    let angle = CGAngle(radians: 10)
+    XCTAssertEqual(angle/2, CGAngle(radians: 5))
+  }
+
+  func testDivideAccumulate() {
+    var angle = CGAngle(radians: 10)
+    angle /= 2
+    XCTAssertEqual(angle, CGAngle(radians: 5))
+  }
+
+  func testSinCos() {
+    XCTAssertEqual(sin(CGAngle(radians: 0)), 0)
+    XCTAssertEqual(cos(CGAngle(radians: 0)), 1)
+    XCTAssertEqual(cos(CGAngle.pi),  -1, accuracy: eps)
+    XCTAssertEqual(sin(CGAngle.pi),  0, accuracy: eps)
+    XCTAssertEqual(cos(CGAngle.pi/2),  0, accuracy: eps)
+    XCTAssertEqual(sin(CGAngle.pi/2),  1, accuracy: eps)
+  }
+
+  func testDegreesInit() {
+    let angle = CGAngle(degrees: 90)
+    XCTAssertEqual(angle.degrees, 90)
+    XCTAssertEqual(angle, CGAngle.pi/2)
+  }
+
+  func testDegreesSetter() {
+    var angle = CGAngle(degrees: 0)
+    angle.degrees = 90
+    XCTAssertEqual(angle.degrees, 90)
+    XCTAssertEqual(angle, CGAngle.pi/2)
+  }
+
+  func testHashValue() {
+    let angleSet: Set<CGAngle> = [CGAngle.pi/2, CGAngle.pi, CGAngle(radians: 0), CGAngle.pi]
+    XCTAssertEqual(angleSet.count, 3)
+  }
+}
+
+
 class CGAffineTransformTTest: XCTestCase {
   func testCGTransformInverse() {
     let worldToCamera = CGAffineTransformT<WorldSpace,CameraSpace>(CGAffineTransform(scaleX: 2, y: 3))
