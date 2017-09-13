@@ -197,10 +197,10 @@ class CGAngleTests: XCTestCase {
   func testSinCos() {
     XCTAssertEqual(sin(CGAngle(radians: 0)), 0)
     XCTAssertEqual(cos(CGAngle(radians: 0)), 1)
-    XCTAssertEqual(cos(CGAngle.pi),  -1, accuracy: eps)
-    XCTAssertEqual(sin(CGAngle.pi),  0, accuracy: eps)
-    XCTAssertEqual(cos(CGAngle.pi/2),  0, accuracy: eps)
-    XCTAssertEqual(sin(CGAngle.pi/2),  1, accuracy: eps)
+    XCTAssertEqual(cos(CGAngle.pi), -1, accuracy: eps)
+    XCTAssertEqual(sin(CGAngle.pi), 0, accuracy: eps)
+    XCTAssertEqual(cos(CGAngle.pi/2), 0, accuracy: eps)
+    XCTAssertEqual(sin(CGAngle.pi/2), 1, accuracy: eps)
   }
 
   func testDegreesInit() {
@@ -265,10 +265,6 @@ class CGAngleTests: XCTestCase {
       XCTAssertEqual(angle.degrees, CGAngle(degrees: item.2).degrees, accuracy: eps)
     }
   }
-
-
-
-
 }
 
 
