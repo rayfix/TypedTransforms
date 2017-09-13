@@ -9,11 +9,14 @@
 import Foundation
 
 extension CGFloat: TrigonometricFloatingPoint {
-  public func sin() -> CGFloat {
-    return CoreGraphics.sin(self)
+  public static func sine(radians: CGFloat) -> CGFloat {
+    return sin(radians)
   }
-  public func cos() -> CGFloat {
-    return CoreGraphics.cos(self)
+  public static func cosine(radians: CGFloat) -> CGFloat {
+    return cos(radians)
+  }
+  public static func arctan2(y: CGFloat, x: CGFloat) -> CGFloat {
+    return atan2(y, x)
   }
 }
 

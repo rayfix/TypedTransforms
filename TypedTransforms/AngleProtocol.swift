@@ -9,18 +9,25 @@
 import Foundation
 
 public protocol TrigonometricFloatingPoint: FloatingPoint {
-  func sin() -> Self
-  func cos() -> Self
-  // Add more here...
+  static func sine(radians: Self) -> Self
+  static func cosine(radians: Self) -> Self
+  static func arctan2(y: Self, x: Self) -> Self
 }
 
 public protocol AngleProtocol: Hashable, Comparable {
   associatedtype Real: TrigonometricFloatingPoint
   init(radians: Real)
+  init(x: Real, y: Real)
   var radians: Real { set get }
 }
 
 public extension AngleProtocol {
+
+  func normalized() -> Self {
+    return Self(radians: Real.arctan2(y: Real.sine(radians: self.radians),
+                                      x: Real.cosine(radians: self.radians)))
+  }
+
   static func ==(lhs: Self, rhs: Self) -> Bool {
     return lhs.radians == rhs.radians
   }
@@ -31,6 +38,10 @@ public extension AngleProtocol {
 
   static func <(lhs: Self, rhs: Self) -> Bool {
     return lhs.radians < rhs.radians
+  }
+
+  init(x: Real, y: Real) {
+    self.init(radians: Real.arctan2(y: y, x: x))
   }
 
   static func +(lhs: Self, rhs: Self) -> Self {
@@ -79,11 +90,11 @@ public extension AngleProtocol {
 }
 
 public func sin<A: AngleProtocol>(_ angle: A) -> A.Real {
-  return angle.radians.sin()
+  return A.Real.sine(radians: angle.radians)
 }
 
 public func cos<A: AngleProtocol>(_ angle: A) -> A.Real {
-  return angle.radians.cos()
+  return A.Real.cosine(radians: angle.radians)
 }
 
 

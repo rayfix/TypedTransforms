@@ -220,6 +220,42 @@ class CGAngleTests: XCTestCase {
     let angleSet: Set<CGAngle> = [CGAngle.pi/2, CGAngle.pi, CGAngle(radians: 0), CGAngle.pi]
     XCTAssertEqual(angleSet.count, 3)
   }
+
+  func testNormalized() {
+    let base: CGFloat = 23
+    let angle1 = CGAngle(degrees: base)
+    let angle2 = CGAngle(degrees: 360*3 + base)
+    let angle3 = CGAngle(degrees: -360*10 + base)
+
+    XCTAssertNotEqual(angle1, angle2)
+    XCTAssertNotEqual(angle1, angle3)
+    XCTAssertNotEqual(angle2, angle3)
+
+    XCTAssertEqual(angle1.normalized().radians, angle2.normalized().radians, accuracy: eps)
+    XCTAssertEqual(angle1.normalized().radians, angle3.normalized().radians, accuracy: eps)
+    XCTAssertEqual(angle2.normalized().radians, angle3.normalized().radians, accuracy: eps)
+  }
+
+  func testVectorInit1() {
+
+    let vector: [(CGFloat, CGFloat, CGFloat)] = [(10,0,0),
+                                                 (10,10,45),
+                                                 (0,10,90),
+                                                 (-10,10,135),
+                                                 (-10,0,180),
+                                                 (-10,-10,-135),
+                                                 (0,-10,-90),
+                                                 (10,-10,-45),
+                                                 (0,0,0)]
+    for item in vector {
+      let angle = CGAngle(x: item.0, y: item.1)
+      XCTAssertEqual(angle.degrees, CGAngle(degrees: item.2).degrees, accuracy: eps)
+    }
+  }
+
+
+
+
 }
 
 
