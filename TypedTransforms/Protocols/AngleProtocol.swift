@@ -84,9 +84,22 @@ public extension AngleProtocol {
     lhs = lhs / rhs
   }
 
+  static var zero: Self {
+    return Self(radians: 0)
+  }
+
   static var pi: Self {
     return Self(radians: Real.pi)
   }
+
+  static var twoPi: Self {
+    return Self(radians: 2*Real.pi)
+  }
+
+  static var piOverTwo: Self {
+    return Self(radians: Real.pi/2)
+  }
+
 }
 
 public func sin<A: AngleProtocol>(_ angle: A) -> A.Real {

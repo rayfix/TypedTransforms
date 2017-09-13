@@ -217,7 +217,7 @@ class CGAngleTests: XCTestCase {
   }
 
   func testHashValue() {
-    let angleSet: Set<CGAngle> = [CGAngle.pi/2, CGAngle.pi, CGAngle(radians: 0), CGAngle.pi]
+    let angleSet: Set<CGAngle> = [.piOverTwo, .pi, .zero, .pi]
     XCTAssertEqual(angleSet.count, 3)
   }
 
@@ -234,6 +234,19 @@ class CGAngleTests: XCTestCase {
     XCTAssertEqual(angle1.normalized().radians, angle2.normalized().radians, accuracy: eps)
     XCTAssertEqual(angle1.normalized().radians, angle3.normalized().radians, accuracy: eps)
     XCTAssertEqual(angle2.normalized().radians, angle3.normalized().radians, accuracy: eps)
+  }
+
+  func testContstants() {
+    var angle = CGAngle.zero
+    angle += .piOverTwo
+    XCTAssertEqual(angle.degrees, 90)
+    angle += .piOverTwo
+    XCTAssertEqual(angle.degrees, 180)
+    angle += angle
+    XCTAssertEqual(angle.degrees, 360)
+    let other = (angle + CGAngle.twoPi).normalized()
+
+    XCTAssertEqual(angle.normalized().degrees, other.degrees, accuracy: eps)
   }
 
   func testVectorInit1() {
