@@ -8,58 +8,7 @@
 
 import Foundation
 
-public protocol PointProtocol2D: Equatable {
-  associatedtype Scalar: FloatingPoint
-  init(_ x: Scalar, _ y: Scalar)
-  var x: Scalar { get set }
-  var y: Scalar { get set }
-  var lengthSquared: Scalar { get }
-  var length: Scalar { get }
-  var unit: Self { get }
-  var orthogonal: Self { get }
-  func projected(on other: Self) -> Self
-}
-
-public extension PointProtocol2D {
-  var lengthSquared: Scalar {
-    return self*self
-  }
-  var length: Scalar {
-    return lengthSquared.squareRoot()
-  }
-  var unit: Self {
-    return self * (1/length)
-  }
-  var orthogonal: Self {
-    return Self(-y,x)
-  }
-  func projected(on other: Self) -> Self {
-    return ((self*other)/(other*other))*other
-  }
-  static func +(lhs: Self, rhs: Self) -> Self {
-    return Self(lhs.x + rhs.x, lhs.y + rhs.y)
-  }
-  static prefix func -(p: Self) -> Self {
-    return Self(-p.x, -p.y)
-  }
-  static func -(lhs: Self, rhs: Self) -> Self {
-    return lhs+(-rhs)
-  }
-  static func *(scalar: Scalar, point: Self) -> Self {
-    return Self(scalar*point.x, scalar*point.y)
-  }
-  static func *(point: Self, scalar: Scalar) -> Self {
-    return scalar*point
-  }
-  static func *(lhs: Self, rhs: Self) -> Scalar {
-    return lhs.x*rhs.x+lhs.y*rhs.y
-  }
-  static func ==(lhs: Self, rhs: Self) -> Bool {
-    return lhs.x == rhs.x && lhs.y == rhs.y
-  }
-}
-
-public struct CGPointT<Space: CoordinateSpace>: PointProtocol2D {
+public struct CGPointT<Space: CoordinateSpace>: Point2DProtocol {
 
   public typealias Scalar = CGFloat
   public var xy: CGPoint
@@ -90,7 +39,7 @@ public struct CGPointT<Space: CoordinateSpace>: PointProtocol2D {
   }
 }
 
-extension CGPoint: PointProtocol2D {
+extension CGPoint: Point2DProtocol {
   public init(_ x: CGFloat, _ y: CGFloat) {
     self.x = x
     self.y = y

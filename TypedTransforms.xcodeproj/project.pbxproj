@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0905BC1F69F4BD008FB9CF /* Point2DProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0905BB1F69F4BD008FB9CF /* Point2DProtocol.swift */; };
 		5D3ED9521F533FAE001FDEFE /* TypedTransforms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3ED9481F533FAE001FDEFE /* TypedTransforms.framework */; };
 		5D3ED9571F533FAE001FDEFE /* TypedTransformsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3ED9561F533FAE001FDEFE /* TypedTransformsTests.swift */; };
 		5D3ED9591F533FAE001FDEFE /* TypedTransforms.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D3ED94B1F533FAE001FDEFE /* TypedTransforms.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D0905BB1F69F4BD008FB9CF /* Point2DProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point2DProtocol.swift; sourceTree = "<group>"; };
 		5D3ED9481F533FAE001FDEFE /* TypedTransforms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TypedTransforms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D3ED94B1F533FAE001FDEFE /* TypedTransforms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypedTransforms.h; sourceTree = "<group>"; };
 		5D3ED94C1F533FAE001FDEFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,6 +66,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D0905BD1F69F4FE008FB9CF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5DFAC0BA1F6901AD006B475A /* AngleProtocol.swift */,
+				5DFAC0BC1F690C4C006B475A /* AngleDegreesConvertible.swift */,
+				5D0905BB1F69F4BD008FB9CF /* Point2DProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		5D3ED93E1F533FAE001FDEFE = {
 			isa = PBXGroup;
 			children = (
@@ -88,12 +100,11 @@
 				5D3ED94B1F533FAE001FDEFE /* TypedTransforms.h */,
 				5D3ED94C1F533FAE001FDEFE /* Info.plist */,
 				5D3ED9621F5341E2001FDEFE /* TypedTransforms.swift */,
+				5D0905BD1F69F4FE008FB9CF /* Protocols */,
+				5DFB87531F6790FB004E5F44 /* CGAngle.swift */,
 				5D3ED9641F534577001FDEFE /* Spaces.swift */,
 				5D3ED9661F534608001FDEFE /* CGPointT.swift */,
 				5DB379951F5B14DC0037BEF4 /* CGAffineTransformT.swift */,
-				5DFB87531F6790FB004E5F44 /* CGAngle.swift */,
-				5DFAC0BA1F6901AD006B475A /* AngleProtocol.swift */,
-				5DFAC0BC1F690C4C006B475A /* AngleDegreesConvertible.swift */,
 			);
 			path = TypedTransforms;
 			sourceTree = "<group>";
@@ -220,6 +231,7 @@
 			files = (
 				5DFB87541F6790FB004E5F44 /* CGAngle.swift in Sources */,
 				5DFAC0BB1F6901AD006B475A /* AngleProtocol.swift in Sources */,
+				5D0905BC1F69F4BD008FB9CF /* Point2DProtocol.swift in Sources */,
 				5D3ED9651F534577001FDEFE /* Spaces.swift in Sources */,
 				5D3ED9671F534608001FDEFE /* CGPointT.swift in Sources */,
 				5DB379961F5B14DC0037BEF4 /* CGAffineTransformT.swift in Sources */,
