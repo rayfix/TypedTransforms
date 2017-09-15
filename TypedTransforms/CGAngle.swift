@@ -20,14 +20,11 @@ extension CGFloat: TrigonometricFloatingPoint {
   }
 }
 
-public struct CGAngle: AngleProtocol {
+public struct CGAngle: AngleDegreesConvertible {
   public var radians: CGFloat
   public init(radians: CGFloat) {
     self.radians = radians
   }
-}
-
-extension CGAngle: AngleDegreesConvertible {
   public static var radiansToDegrees: CGFloat {
     return 180/CGFloat.pi
   }
