@@ -8,11 +8,8 @@
 
 import Foundation
 
-public protocol AngleDegreesConvertible {
-  associatedtype Real: FloatingPoint
-  init(radians: Real)
+public protocol AngleDegreesConvertible: AngleProtocol {
   init(degrees: Real)
-  var radians: Real { get set }
   var degrees: Real { set get }
   static var radiansToDegrees: Real { get }
 }
