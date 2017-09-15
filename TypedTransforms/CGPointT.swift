@@ -6,7 +6,7 @@
 //  Copyright © 2017 Ray Fix. All rights reserved.
 //
 
-import Foundation
+import CoreGraphics
 
 public struct CGPointT<Space: CoordinateSpace>: Point2DProtocol {
 

@@ -6,7 +6,7 @@
 //  Copyright © 2017 Ray Fix. All rights reserved.
 //
 
-import Foundation
+import CoreGraphics
 
 extension CGFloat: TrigonometricFloatingPoint {
   public static func sine(radians: CGFloat) -> CGFloat {
