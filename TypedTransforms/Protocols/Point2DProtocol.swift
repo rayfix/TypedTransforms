@@ -13,11 +13,6 @@ public protocol Point2DProtocol: Equatable {
   init(_ x: Scalar, _ y: Scalar)
   var x: Scalar { get set }
   var y: Scalar { get set }
-  var lengthSquared: Scalar { get }
-  var length: Scalar { get }
-  var unit: Self { get }
-  var orthogonal: Self { get }
-  func projected(on other: Self) -> Self
 }
 
 public extension Point2DProtocol {
