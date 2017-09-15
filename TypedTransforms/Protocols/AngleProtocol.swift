@@ -69,19 +69,19 @@ public extension AngleProtocol {
   }
 
   static func +=(lhs: inout Self, rhs: Self) {
-    lhs = lhs + rhs
+    lhs.radians += rhs.radians
   }
 
   static func -=(lhs: inout Self, rhs: Self) {
-    lhs = lhs - rhs
+    lhs.radians -= rhs.radians
   }
 
   static func *=(lhs: inout Self, rhs: Real) {
-    lhs = lhs * rhs
+    lhs.radians *= rhs
   }
 
   static func /=(lhs: inout Self, rhs: Real) {
-    lhs = lhs / rhs
+    lhs.radians /= rhs
   }
 
   static var zero: Self {
@@ -99,7 +99,6 @@ public extension AngleProtocol {
   static var piOverTwo: Self {
     return Self(radians: Real.pi/2)
   }
-
 }
 
 public func sin<A: AngleProtocol>(_ angle: A) -> A.Real {
