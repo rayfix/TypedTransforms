@@ -8,6 +8,15 @@
 
 import Foundation
 
+extension CGAffineTransform {
+  static func *(point: CGPoint, transform: CGAffineTransform) -> CGPoint {
+    return point.applying(transform)
+  }
+
+  static func *(lhs: CGAffineTransform, rhs: CGAffineTransform) -> CGAffineTransform {
+    return lhs.concatenating(rhs)
+  }
+}
 
 public struct CGAffineTransformT<From: CoordinateSpace, To: CoordinateSpace> {
   public var matrix: CGAffineTransform
