@@ -8,26 +8,28 @@
 
 import ARKit
 
-struct matrix_float4x4_t<To: CoordinateSpace, From: CoordinateSpace> {
-  var matrix: matrix_float4x4
-  init(_ matrix: matrix_float4x4) {
+public struct matrix_float4x4_t<To: CoordinateSpace, From: CoordinateSpace> {
+  public var matrix: matrix_float4x4
+  public init(_ matrix: matrix_float4x4) {
     self.matrix = matrix
   }
 }
 
-struct float4_t<Space: CoordinateSpace> {
-  var point: float4
+public struct float4_t<Space: CoordinateSpace> {
+  public var point: float4
   init(_ point: float4) {
     self.point = point
   }
 }
 
 extension matrix_float4x4_t {
-  static func *<To, From>(lhs: matrix_float4x4_t<To, From>, rhs: float4_t<From>) -> float4_t<To> {
-    return float4_t<To>(lhs.matrix * rhs.point)
-  }
 
-  func inverted() -> matrix_float4x4_t<To, From> {
-    return matrix_float4x4_t<To, From>(matrix.inverse)
+
+  public func inverted() -> matrix_float4x4_t<From, To> {
+    return matrix_float4x4_t<From, To>(matrix.inverse)
   }
+}
+
+public func *<To, From>(lhs: matrix_float4x4_t<To, From>, rhs: float4_t<From>) -> float4_t<To> {
+  return float4_t<To>(lhs.matrix * rhs.point)
 }
