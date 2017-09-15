@@ -8,14 +8,14 @@
 
 import ARKit
 
+extension ARCamera: TypedTransformAdditions {}
+
+public
 extension TypedTransforms where Base: ARCamera {
-  var matrix: matrix_float4x4_t<WorldSpace, CameraSpace> {
+  public var cameraFromWorld: matrix_float4x4_t<CameraSpace, WorldSpace> {
+    return matrix_float4x4_t(base.transform).inverted()
+  }
+  public var worldFromCamera: matrix_float4x4_t<WorldSpace, CameraSpace> {
     return matrix_float4x4_t(base.transform)
-  }
-  var cameraFromWorld: matrix_float4x4_t<WorldSpace, CameraSpace> {
-    return matrix
-  }
-  var worldFromCamera: matrix_float4x4_t<WorldSpace, CameraSpace> {
-    return matrix.inverted()
   }
 }
